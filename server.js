@@ -19,4 +19,5 @@ app.get('/', (req, res) => {
 
 app.post('/clicked', (req, res) => {
 	console.log(req.body);
+	console.log(req.body.item_name)
 });

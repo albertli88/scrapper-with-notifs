@@ -9,7 +9,7 @@ const valueBar4 = document.getElementById('myTextField4');
 
 button.addEventListener('click', function(e) {
     var data = {
-        'item-name': valueBar1.value,
+        'item_name': valueBar1.value,
         'brand': valueBar2.value,
         'sales': valueBar3.value,
         'websites': valueBar4.value

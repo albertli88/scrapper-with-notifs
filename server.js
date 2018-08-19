@@ -4,6 +4,8 @@ const express = require('express');
 const app = express();
 var bodyParser = require('body-parser')
 
+const { exec } = require('child_process');
+
 app.use(express.static('public'));
 app.use(bodyParser.json())
 
@@ -19,5 +21,19 @@ app.get('/', (req, res) => {
 
 app.post('/clicked', (req, res) => {
 	console.log(req.body);
-	console.log(req.body.item_name)
+	//console.log(req.body.item_name)
+
+	exec('scrapy crawl ssense -a start_url="https://www.ssense.com/en-us/men/designers/apc"', (err, stdout, stderr) => {
+  		if (err) {
+    // node couldn't execute the command
+    		console.log(err);
+    		return;
+  		}
+
+  		console.log("no fail");
+
+  // the *entire* stdout and stderr (buffered)
+  		console.log(`stdout: ${stdout}`);
+  		console.log(`stderr: ${stderr}`);
+	});
 });
